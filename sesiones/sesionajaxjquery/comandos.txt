@@ -1,0 +1,3 @@
+Con AJAX se obtiene una respuesta sin que tenga que cargar la pagina nuevamente es inmediato
+
+se puede usar jquery primero

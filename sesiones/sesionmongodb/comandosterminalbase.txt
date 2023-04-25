@@ -1,0 +1,9 @@
+show dbs ----> muestra las bases de datos
+use base_de_datos_X ----> se posiciona adentro de la base de datos X
+use nueva_bd ---> crea una base de datos nueva llamada "nueva_bd"
+show collections ----> muestra las colecciones de esa B
+db.nombre_coleccion.find( mi_consulta ) ----> para hacer consultas en la coleccion
+{ clave: valor, clave: valor }
+db,createCollection("coleccion_prueba)----->crear coleccion_prueba
+
+eliminar coleccion ---->db.Coleccion_prueba.drop()

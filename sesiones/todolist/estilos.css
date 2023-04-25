@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #nueva-tarea {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  #agregar-tarea-boton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #agregar-tarea-boton:hover {
+    opacity: 0.8;
+  }
+  
+  .tarea-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tarea-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  

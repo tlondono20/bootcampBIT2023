@@ -1,0 +1,13 @@
+el comando para instalar package express npm install express 
+
+para iniciar o encender el servidor es npx nodemon index.js
+
+en CRUD 
+para C de create el metodo es post 
+para R de read el metodo es get 
+para U de update el metodo es put 
+para D de delete el metodo delete
+
+el name que se le coloca en las eqtiquetas HTML sirve para guardar los datos tipo nombre :valor 
+
+el comando para instalar body parser npm install body-parser

@@ -1,0 +1,27 @@
+el comando para crear el archivo package json que siempre se debe crear en cada proyecto con node.js npm init
+
+para ejecutar en la terminal del lado del servidor lo que contenga el archivo js usamos el comando node y nombre del archivo pero solo ejecuta una vez y cada vez que haga un cambio
+
+para encender el servidor que mangenta escuchando agregamos el comando npx nodemon y el nombre del archivo.js
+
+get y post son los metodos usados para solicitar y enviar algo al servidor ,el get estan las direcciones y el limitado y el post es ilimitado 
+
+otros metodos son put para modificar 
+
+y delete para eliminar 
+
+get
+post
+put
+delete
+
+en node tiene modulos el http es para iniciar el servidor y responde a peticiones de los usuarios
+
+y el modulo fs es para leer el sistema de archivo para leer el archivo html y despues pasarlo al usuario con http
+
+pasos para node 
+1. crear una carpeta 
+2. crear un archivo "package.json"(npm init)
+3.crear el archivo principal (index.js)
+3.1 crear servidor http para dar respuesta al cliente 
+4encender el servidor npx nodemon index.js

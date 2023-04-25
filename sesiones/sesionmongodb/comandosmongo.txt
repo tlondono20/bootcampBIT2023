@@ -1,0 +1,97 @@
+FORMA PARA REALIZAR CONSULTAS
+{ clave: "valor" }
+{ <campo>: <valor> }
+{ <campo>: { <operador>: <valor> } }
+
+Ej:
+{ marca: "apple" } ----> consultamos todos los productos con marca Apple
+
+
+OPERADORES MATEMÁTICOS P/MongoDB
+
+$eq ----> igual que (equal)
+$ne ----> distinto que (not equal)
+$gt ----> valores mayores que (greater than)
+$gte ---> valores mayores o iguales que (greater than or equal)
+$lt ----> valores menores que (lower than)
+$lte ---> valores menores o iguales que (lower than or equal)
+
+
+OPERADORES LÓGICOS (AND, OR):
+
+AND
+{ <campo>: <valor>, <campo2>:<valor>, <campo3>:<valor> }
+{ edad : {$lt:18}, genero: "M" } 
+
+OR
+{$or : [{consulta},{consulta}]}
+{ $or: [ { genero: "M" }, edad: { $eq: 18 } ] }  
+{$or : [{talle : "E"},{fec_nac:{$regex: /2006$/} }]}
+
+{ idioma : {$ne:"Italian"}, titulo: "Mrs",talle: {$ne: "L"} }
+{$or:[{talle: {eq: "XL"}},{fec_nac:{$regex: /1985$/}}]}
+EXTRAS:
+
+- Obtener los documentos que el un campo termine en "nifty.com"
+{ email: { $regex: /nifty.com$/ } }
+
+- Obtener documentos que un campo comienze con la letra "a" (no importa si es mayuscula o minuscula)
+{ nombre: { $regex: /^a/i } } ---> la "i" al final del regex, significa que no importa si es mayuscula o minuscula
+
+- Obtener una letra/palabra que este en el medio de un campo. Ej. emiliano@gmail.com
+{ email: { $regex: /gmail/ } }
+
+CONSULTAS DE EJEMPLO
+********************
+
+1. Obtener documentos que el nombre sea "Andrea"
+{ nombre: { $eq: "Andrea" } }
+{ nombre: "Andrea" }
+
+2. Obtener documentos que nombre NO sea "Peter"
+{ nombre: { $ne: "Peter" } }
+
+3. Obtener las personas mayores de edad
+{ edad: { $gte:18 } } 
+
+4. Obtener aquellas personas que sean mayor de edad Y tengan talle "M"
+{ edad: { $gte: 18 } , talle: "M" }
+
+5. Obtener las personas de genero Femenino que sean menor de edad
+{ edad: { $lt:18 } , genero: "F" }
+
+6. A la consulta anterior, agregar aquelas cuyo talle de remera no sea L
+{ genero: "F", edad: { $lt: 18 }, talle: { $ne: "L" } }
+
+7. Obtener aquellas personas cuyo nombre termine en "a" y su talle sea el "S"
+{ nombre: { $regex: /a$/ }, talle: "S" }
+
+8. Obtener aquellas personas que su apellido comienza con "P" (may o min), y nacieron en el año 1992, Y
+el idioma es distinto a "Italian"
+{ apellido: { $regex: /^p/i }, fec_nac: { $regex: /1992$/ }, idioma : { $ne: "Italian" } }
+
+9. Obtener las personas que en su titulo contentan una "r" y hayan nacido en el mes de Diciembre
+{ titulo: { $regex: /r/ }, fec_nac: { $regex: /^.*\/12\/.*$/ } }
+
+
+$regex: /texto_a_buscar$/     ----> Texto al final
+
+$regex: /^texto_a_buscar/     ----> Texto al comienzo
+
+$regex: /texto_a_buscar/      ----> Texto en el medio
+
+$regex:  /texto_a_buscar/i    ----> Mayusculas y minusculas
+
+{ titulo :{$regex:/^M/i},fec_nac:{$regex:/1990$/} }
+
+obtener aquellas personas que su apellido comienza con "D" y que son mujeres o mayor a 50 años
+{ consulta1, $or: [ {consulta2}, {consulta3} ] }
+
+1.{ marca: {$eq:'Peugeot'}};
+2.{precio:{$gt:10000},id_cliente:{$exists:true}} ,{precio: 1 ,id_cliente:1,_id:0}, {precio : 1};
+3.{fecha_alquiler: {$regex: /2022$/}};
+4.{id_cliente:"1234"} ,{precio:1, _id:0}
+5.{marca :{$ne:"Audi},$or:[{marca:{$eq:"Fiat"}},{marca:{$eq:"Chevrolet"}},]}
+
+Obtener el nombre y apellido de las primeras 10 personas que su nombre comience con A, 
+ordenarlo de mayor a menor por la edad
